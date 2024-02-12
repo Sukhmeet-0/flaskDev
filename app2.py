@@ -1,4 +1,9 @@
 #adding html to flask 
+# adding jinja2
+'''{% .. %}
+    {{  }}
+    {# .... #}
+'''
 from flask import Flask,redirect,url_for,render_template,request
 app = Flask(__name__)
 @app.route('/')
@@ -19,7 +24,7 @@ def submit():
     if total_score >=50:
         res ='success'
     else:
-        res='fail' 
+        res='success' 
     return redirect(url_for(res,score=total_score))
 
 
@@ -32,7 +37,8 @@ def success(score):
         res='PASS'
     else:
         res='FAIL'
-    return render_template('result.html',result=res)
+    exp = {'score':score,'res':res}
+    return render_template('result.html',result=exp)
 
 @app.route('/fail/<int:score>')
 def fail(score):

@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
 </head>
 <body>
     <h1>Welcome to Flask tutorial. Hope you find it useful</h1>
-    <form action="/submit" method="post">
+    <form action="/submit" method="post" >
         <label for="science">Science:</label>
         <input type="text" id="science" name="science" value="0"><br>
 
@@ -20,8 +21,9 @@
         <label for="ds">Science:</label>
         <input type="text" id="ds" name="ds" value="0"><br>
 
-        <input type="submit" name="Submit" id="submit" value="submit">
+        <input type="submit" name="Submit" id="submit" value="submit" onclick="go()">
     </form>
     <h2>If you click submit the page will redirect to page called '/submit'</h2>
+    <script src="{{ url_for('static',filename='js/script.js') }}"></script>
 </body>
 </html>
